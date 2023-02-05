@@ -1,6 +1,6 @@
 use "debug"
 
-primitive _Standard
+primitive Standard
   fun apply[T: Comparable[T] #read](
     needle: T,
     haystack: ReadSeq[T],

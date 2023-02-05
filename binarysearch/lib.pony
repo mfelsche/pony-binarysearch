@@ -14,6 +14,6 @@ type Ordering is (Asc | Desc)
   Ordering for BinarySearch operations.
   """
 
-type BinarySearch is _Standard
+type BinarySearch is Standard
 
 

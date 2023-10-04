@@ -8,18 +8,19 @@ actor \nodoc\ Main is TestList
     None
 
   fun tag tests(test: PonyTest) =>
-    test(SortedSmallArray)
+    test(StandardLowerBoundNumericSmall)
 
-class \nodoc\iso SortedSmallArray is UnitTest
+class \nodoc\ iso StandardLowerBoundNumericSmall is UnitTest
   fun name(): String =>
-    "SortedSmallArray"
+    "standard/lower_bound/numeric"
   fun apply(h: TestHelper) =>
     let array: Array[U32] = [1; 2; 3; 4; 5; 6; 7; 8; 9]
-    assert_search(h, 3, array where expected = (2, true))
-    assert_search(h, 0, array where expected = (0, false))
-    assert_search(h, 10, array where expected = (9, false))
+    assert_lower_bound(h, 3, array where expected = 2)
+    assert_lower_bound(h, 0, array where expected = 0)
+    assert_lower_bound(h, 10, array where expected = 9)
 
-  fun assert_search(h: TestHelper, needle: U32, haystack: ReadSeq[U32], expected: (USize, Bool)) =>
-    (let idx, let found) = BinarySearch[U32](needle, haystack)
-    h.assert_eq[USize](expected._1, idx)
-    h.assert_eq[Bool](expected._2, found)
+  fun assert_lower_bound(h: TestHelper, needle: U32, haystack: ReadSeq[U32], expected: USize, loc: SourceLoc val = __loc) =>
+    (let idx, let found) = Standard[U32](needle, haystack)
+    h.assert_eq[USize](expected, idx where loc = loc)
+
+

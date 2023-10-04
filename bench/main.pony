@@ -12,12 +12,12 @@ actor Main is BenchmarkList
     bench(_StandardNumericArray.create(128))
     bench(_StandardNumericArray.create(1024))
     bench(_StandardNumericArray.create(65536))
-    bench(_BitwiseNumericArray.create(128))
-    bench(_BitwiseNumericArray.create(1024))
-    bench(_BitwiseNumericArray.create(65536))
-    bench(_MonoboundNumericArray.create(128))
-    bench(_MonoboundNumericArray.create(1024))
-    bench(_MonoboundNumericArray.create(65536))
+    //bench(_BitwiseNumericArray.create(128))
+    //bench(_BitwiseNumericArray.create(1024))
+    //bench(_BitwiseNumericArray.create(65536))
+    //bench(_MonoboundNumericArray.create(128))
+    //bench(_MonoboundNumericArray.create(1024))
+    //bench(_MonoboundNumericArray.create(65536))
 
 
 class \nodoc\ iso _StandardNumericArray is MicroBenchmark
